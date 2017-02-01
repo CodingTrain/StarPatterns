@@ -1,3 +1,9 @@
+// Daniel Shiffman
+// http://codingtra.in
+// Islamic Star Patterns
+// Video: https://youtu.be/sJ6pMLp_IaI
+// Based on: http://www.cgl.uwaterloo.ca/csk/projects/starpatterns/
+
 function Hankin(a, v) {
   this.a = a;
   this.v = v;
@@ -20,6 +26,8 @@ function Hankin(a, v) {
     // line line intersection???
     // this.a, this.v  (P1, P2-P1)
     // other.a, other.v (P3, P4-P3)
+
+    // From: http://paulbourke.net/geometry/pointlineplane/
     var den = (other.v.y * this.v.x) - (other.v.x * this.v.y);
     if (!den) {
       return;

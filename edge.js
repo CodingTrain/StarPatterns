@@ -1,3 +1,9 @@
+// Daniel Shiffman
+// http://codingtra.in
+// Islamic Star Patterns
+// Video: https://youtu.be/sJ6pMLp_IaI
+// Based on: http://www.cgl.uwaterloo.ca/csk/projects/starpatterns/
+
 function Edge(a, b) {
   this.a = a;
   this.b = b;
