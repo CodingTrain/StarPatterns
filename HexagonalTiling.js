@@ -1,7 +1,7 @@
 function HexagonalTiling(r) {
   this.polys = [];
 
-  this.BuildCell = function(x, y) {
+  this.buildCell = function(x, y) {
     var p = new Polygon();
 
     // rotate 360 degrees around the clock in 60 degree increments
@@ -17,17 +17,17 @@ function HexagonalTiling(r) {
     this.polys.push(p);
   }
 
-  //http://www.redblobgames.com/grids/hexagons/
-  this.BuildGrid = function() {
-    var height = r * 2;
-    var width = (Math.sqrt(3) / 2) * height;
-    var heightInc = 3 * (height / 4);
+  // http://www.redblobgames.com/grids/hexagons/
+  this.buildGrid = function() {
+    var h = r * 2;
+    var w = (sqrt(3) / 2) * h;
+    var inc = 3 * (h / 4);
     // TODO: get dimensions from somewhere
     var row = 0;
-    for (var y = height / 2; y < 400; y += heightInc) {
-      var startX = ((row % 2) == 0) ? width : width / 2;
-      for (var x = startX; x < 400; x += width) {
-        this.BuildCell(x, y);
+    for (var y = -h / 2; y < 400 + h/2; y += inc) {
+      var startX = ((row % 2) == 0) ? -w : -w / 2;
+      for (var x = startX; x < 400; x += w) {
+        this.buildCell(x, y);
       }
       row++;
     }
