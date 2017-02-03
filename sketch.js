@@ -13,20 +13,20 @@ var delta = 10;
 var deltaSlider;
 var angleSlider;
 var tilingTypeSelect;
+var gridCheck;
 
 function setup() {
-  createCanvas(400, 400);
-  //angleMode(DEGREES);
+  var canvas = createCanvas(400, 400);
+  canvas.parent('canvasContainer');
+
+  // angleMode(DEGREES);
   background(51);
-  deltaSlider = createSlider(0, 25, 10);
-  angleSlider = createSlider(0, 90, 75);
-  tilingTypeSelect = createSelect();
-  tilingTypeSelect.option('square');
-  tilingTypeSelect.option('hexagonal');
+  deltaSlider = select('#delta');
+  angleSlider = select('#angle');
+  tilingTypeSelect = select('#tiling');
   tilingTypeSelect.changed(chooseTiling);
-
+  gridCheck = select('#showGrid');
   chooseTiling();
-
 }
 
 function draw() {
@@ -41,7 +41,7 @@ function draw() {
 
 function hexTiling() {
   var hexTiles = new HexagonalTiling(50);
-  hexTiles.BuildGrid();
+  hexTiles.buildGrid();
   polys = hexTiles.polys;
 }
 

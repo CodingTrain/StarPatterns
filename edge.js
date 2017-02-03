@@ -11,8 +11,10 @@ function Edge(a, b) {
   this.h2;
 
   this.show = function() {
-    stroke(255, 2);
-    line(this.a.x, this.a.y, this.b.x, this.b.y);
+    if (gridCheck.checked()) {
+      stroke(255, 50);
+      line(this.a.x, this.a.y, this.b.x, this.b.y);
+    }
     this.h1.show();
     this.h2.show();
   }
