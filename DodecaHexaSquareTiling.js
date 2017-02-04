@@ -1,6 +1,5 @@
 function DodecaHexaSquareTiling(r) {
   this.polys = [];
-
   this.buildCell = function(x, y) {
     var sides = 12;
     var p;
