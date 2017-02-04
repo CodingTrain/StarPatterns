@@ -5,8 +5,9 @@ function HexagonalTiling(r) {
     var p = new Polygon();
 
     // rotate 360 degrees around the clock in 60 degree increments
-    var inc = 2 * Math.PI / 6;
-    for (var index = 0; index < 6; index++){
+    var sides = 6;
+    var inc = (2 * Math.PI) / sides;
+    for (var index = 0; index < sides; index++){
       // angular to cartesian
       var θ = (index * inc) - inc / 2;
       var vX = x + r * Math.cos(θ);
@@ -19,14 +20,14 @@ function HexagonalTiling(r) {
 
   //http://www.redblobgames.com/grids/hexagons/
   this.BuildGrid = function() {
-    var height = r*2;
-    var width = (Math.sqrt(3)/2) * height;
-    var heightInc = 3 * (height / 4);
+    var h = r*2;
+    var w = (Math.sqrt(3)/2) * h;
+    var hInc = 3 * (h / 4);
     // TODO: get dimensions from somewhere
     var row = 0;
-    for (var y = height/2; y < 400; y += heightInc) {
-      var startX = ((row % 2) == 0) ? width : width/2;
-      for (var x = startX; x < 400; x += width) {
+    for (var y = h/2; y < height; y += hInc) {
+      var startX = ((row % 2) == 0) ? w : w/2;
+      for (var x = startX; x < width; x += w) {
         this.BuildCell(x, y);
       }
       row ++;
