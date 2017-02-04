@@ -30,7 +30,7 @@ function setup() {
 }
 
 function draw() {
-  background(51);
+  background(50);
   angle = angleSlider.value();
   delta = deltaSlider.value();
   for (var i = 0; i < polys.length; i++) {
@@ -61,6 +61,13 @@ function squareTiling() {
   }
 }
 
+function dodecaHexSquareTiling(){
+  var tiles = new DodecaHexaSquareTiling(50);
+  tiles.buildGrid();
+  polys = tiles.polys;
+
+}
+
 function chooseTiling() {
   switch (tilingTypeSelect.value()) {
     case "square":
@@ -69,8 +76,12 @@ function chooseTiling() {
     case "hexagonal":
       hexTiling();
       break;
+    case "dodeca_hex_square":
+      dodecaHexSquareTiling();
+      break;
     default:
-      squareTiling();
+      dodecaHexSquareTiling();
+      // squareTiling();
       break;
   }
 }
