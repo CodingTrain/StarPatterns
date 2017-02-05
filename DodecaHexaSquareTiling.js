@@ -29,7 +29,7 @@ function DodecaHexaSquareTiling(r) {
     p = build_poly(x+d6,y,r6,6);
     this.polys.push(p);
     //lets find out which those are:
-    
+
     p = build_poly(x+D6.x,y+D6.y,r6,6,Math.PI/3);
     this.polys.push(p);
     p = build_poly(x+D4A.x,y+D4A.y,r4,4,Math.PI/6);
@@ -69,11 +69,10 @@ function DodecaHexaSquareTiling(r) {
     var w = 2*h12+4*h6+2*h4;
     var inc = h
     // TODO: get dimensions from somewhere
-    var dim =400;
     var row = 0;
-    for (var y = -h / 2; y < dim + h/2; y += inc) {
+    for (var y = -h / 2; y < height + h/2; y += inc) {
       var startX = ((row % 2) == 0) ? -w : -w / 2;
-      for (var x = startX; x < dim; x += w) {
+      for (var x = startX; x < width; x += w) {
         this.buildCell(x, y);
       }
       row++;

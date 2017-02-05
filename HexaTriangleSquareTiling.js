@@ -51,9 +51,9 @@ function HexaTriangleSquareTiling(r) {
     var inc = h;
     // TODO: get dimensions from somewhere
     var row = 0;
-    for (var y = -h / 2; y < 400 + h/2; y += inc) {
+    for (var y = -h / 2; y < height + h/2; y += inc) {
       var startX = ((row % 2) == 0) ? -w : -w / 2;
-      for (var x = startX; x < 400; x += w) {
+      for (var x = startX; x < width; x += w) {
         this.buildCell(x, y);
       }
       row++;

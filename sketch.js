@@ -20,19 +20,25 @@ var tilingTypeSelect;
 var gridCheck;
 
 function setup() {
-  var canvas = createCanvas(400, 400);
+  var canvas = createCanvas(1600, 2144);
   canvas.parent('canvasContainer');
-
+  noLoop();
   // angleMode(DEGREES);
   background(51);
   deltaSlider = select('#delta');
+  deltaSlider.changed(draw);
   angleSlider = select('#angle');
+  angleSlider.changed(draw);
   tilingTypeSelect = select('#tiling');
   tilingTypeSelect.changed(chooseTiling);
   gridCheck = select('#showGrid');
+  gridCheck.changed(draw);
   angleSliderIncrease = select('#angleIncrease');
+  angleSliderIncrease.changed(draw);
   deltaSliderIncrease = select('#deltaIncrease');
+  deltaSliderIncrease.changed(draw);
   cycleSlider = select('#cycleIncrease');
+  cycleSlider.changed(draw);
   downloadButton = createButton('save');
   downloadButton.mousePressed(saveDrawing);
   chooseTiling();
@@ -116,6 +122,7 @@ function chooseTiling() {
       // squareTiling();
       break;
   }
+  draw();
 }
 
 function printPoints() {var data = {a:1, b:2, c:3};
