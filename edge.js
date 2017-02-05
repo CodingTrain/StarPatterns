@@ -12,7 +12,7 @@ function Edge(a, b) {
 
   this.show = function() {
     if (gridCheck.checked()) {
-      stroke(255, 50);
+      stroke(255, 25);
       line(this.a.x, this.a.y, this.b.x, this.b.y);
     }
     this.h1.show();
@@ -36,13 +36,11 @@ function Edge(a, b) {
     v1.normalize();
     v2.normalize();
 
-
     v1.rotate(radians(-angle));
     v2.rotate(radians(angle));
 
     this.h1 = new Hankin(offset1, v1);
     this.h2 = new Hankin(offset2, v2);
-
   }
 
   this.findEnds = function(edge) {
@@ -51,6 +49,5 @@ function Edge(a, b) {
     this.h2.findEnd(edge.h1);
     this.h2.findEnd(edge.h2);
   }
-
 
 }
