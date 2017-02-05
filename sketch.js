@@ -54,7 +54,7 @@ function draw() {
 
 function octSquareTiling() {
   var octSqTiles = new SquareOctagonTiling(50);
-  octSqTiles.BuildGrid();
+  octSqTiles.buildGrid();
   polys = octSqTiles.polys;
 }
 

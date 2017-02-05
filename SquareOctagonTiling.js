@@ -2,7 +2,7 @@ function SquareOctagonTiling(r) {
 
   this.polys = [];
 
-  this.BuildOctCell = function(x, y) {
+  this.buildOctCell = function(x, y) {
 
     var p = new Polygon();
 
@@ -20,7 +20,7 @@ function SquareOctagonTiling(r) {
 
   }
 
-  this.BuildSquareCell = function(x, y) {
+  this.buildSquareCell = function(x, y) {
     var p = new Polygon();
 
     var sides = 4;
@@ -39,7 +39,7 @@ function SquareOctagonTiling(r) {
     this.polys.push(p);
   }
 
-  this.BuildGrid = function() {
+  this.buildGrid = function() {
     var h = r*2;
     var wo = r * Math.cos(Math.PI/8);
     var ws = 2 * r * sin(Math.PI/8);
@@ -51,7 +51,7 @@ function SquareOctagonTiling(r) {
       var startX = wo;
       var col = (row % 2 == 0) ? 0 : 1;
       for (var x = startX; x < width; x += (wo + ws/2)) {
-        ((col % 2) == 0) ? this.BuildOctCell(x, y) : this.BuildSquareCell(x, y);
+        ((col % 2) == 0) ? this.buildOctCell(x, y) : this.buildSquareCell(x, y);
         col ++;
       }
       row ++;
