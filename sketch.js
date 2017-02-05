@@ -39,7 +39,7 @@ function setup() {
 }
 
 function draw() {
-  background(51);
+  background(50);
   angle = angleSlider.value();
   delta = deltaSlider.value();
   var t = 0;
@@ -63,6 +63,11 @@ function hexTiling() {
   hexTiles.buildGrid();
   polys = hexTiles.polys;
 }
+function hexTriangleSquareTiling() {
+  var tiles = new HexaTriangleSquareTiling(50);
+  tiles.buildGrid();
+  polys = tiles.polys;
+}
 
 function squareTiling() {
   polys = [];
@@ -80,6 +85,13 @@ function squareTiling() {
   }
 }
 
+function dodecaHexSquareTiling(){
+  var tiles = new DodecaHexaSquareTiling(50);
+  tiles.buildGrid();
+  polys = tiles.polys;
+
+}
+
 function chooseTiling() {
   switch (tilingTypeSelect.value()) {
     case "4.8.8":
@@ -91,8 +103,17 @@ function chooseTiling() {
     case "hexagonal":
       hexTiling();
       break;
+    case "dodeca_hex_square":
+      dodecaHexSquareTiling();
+      break;
+    case "hexa_triangle_square":
+      // dodecaHexSquareTiling();
+      hexTriangleSquareTiling();
+      break;
     default:
-      squareTiling();
+      hexTriangleSquareTiling();
+      // dodecaHexSquareTiling();
+      // squareTiling();
       break;
   }
 }
