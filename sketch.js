@@ -17,25 +17,25 @@ var deltaSliderIncrease;
 var cycleSlider;
 var downloadButton;
 var tilingTypeSelect;
+var gridCheck;
 
 function setup() {
-  createCanvas(600, 600);
-  //angleMode(DEGREES);
+  var canvas = createCanvas(400, 400);
+  canvas.parent('canvasContainer');
+
+  // angleMode(DEGREES);
   background(51);
-  deltaSlider = createSlider(0, 25, 10);
-  angleSlider = createSlider(0, 90, 75);
-  angleSliderIncrease = createSlider(0.0, 2.0, 0, 0.01);
-  deltaSliderIncrease = createSlider(0.0, 2.0, 0, 0.01);
-  cycleSlider = createSlider(0.0, 4*Math.PI, 0, 0.1);
-  tilingTypeSelect = createSelect();
-  tilingTypeSelect.option('square');
-  tilingTypeSelect.option('hexagonal');
-  tilingTypeSelect.option('4.8.8');
+  deltaSlider = select('#delta');
+  angleSlider = select('#angle');
+  tilingTypeSelect = select('#tiling');
   tilingTypeSelect.changed(chooseTiling);
+  gridCheck = select('#showGrid');
+  angleSliderIncrease = select('#angleIncrease');
+  deltaSliderIncrease = select('#deltaIncrease');
+  cycleSlider = select('#cycleIncrease');
   downloadButton = createButton('save');
   downloadButton.mousePressed(saveDrawing);
   chooseTiling();
-
 }
 
 function draw() {
@@ -53,14 +53,14 @@ function draw() {
 }
 
 function octSquareTiling() {
-  var octSqTiles = new SquareOctagonTiling(70);
+  var octSqTiles = new SquareOctagonTiling(50);
   octSqTiles.BuildGrid();
   polys = octSqTiles.polys;
 }
 
 function hexTiling() {
-  var hexTiles = new HexagonalTiling(70);
-  hexTiles.BuildGrid();
+  var hexTiles = new HexagonalTiling(50);
+  hexTiles.buildGrid();
   polys = hexTiles.polys;
 }
 

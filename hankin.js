@@ -12,7 +12,8 @@ function Hankin(a, v) {
   this.prevD;
 
   this.show = function() {
-    stroke(255, 0, 255);
+    stroke(255);
+    strokeWeight(2);
     line(this.a.x, this.a.y, this.end.x, this.end.y);
     // fill(255);
     // ellipse(this.a.x, this.a.y, 8);
