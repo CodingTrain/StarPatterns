@@ -43,10 +43,10 @@ function draw() {
   angle = angleSlider.value();
   delta = deltaSlider.value();
   var t = 0;
-  var step = cycleSlider.value()/polys.length;
+  var step = cycleSlider.value() / polys.length;
   for (var i = 0; i < polys.length; i++) {
-    angle += (Math.sin(step*i)) * angleSliderIncrease.value();
-    delta += (Math.sin(step*i)) * deltaSliderIncrease.value();
+    angle += (Math.sin(step * i)) * angleSliderIncrease.value();
+    delta += (Math.sin(step * i)) * deltaSliderIncrease.value();
     polys[i].hankin();
     polys[i].show();
   }
@@ -63,6 +63,7 @@ function hexTiling() {
   hexTiles.buildGrid();
   polys = hexTiles.polys;
 }
+
 function hexTriangleSquareTiling() {
   var tiles = new HexaTriangleSquareTiling(50);
   tiles.buildGrid();
@@ -74,7 +75,7 @@ function squareTiling() {
   var inc = 100;
   for (var x = 0; x < width; x += inc) {
     for (var y = 0; y < height; y += inc) {
-      var poly = new Polygon();
+      var poly = new Polygon(4);
       poly.addVertex(x, y);
       poly.addVertex(x + inc, y);
       poly.addVertex(x + inc, y + inc);
@@ -85,7 +86,7 @@ function squareTiling() {
   }
 }
 
-function dodecaHexSquareTiling(){
+function dodecaHexSquareTiling() {
   var tiles = new DodecaHexaSquareTiling(50);
   tiles.buildGrid();
   polys = tiles.polys;
@@ -118,14 +119,21 @@ function chooseTiling() {
   }
 }
 
-function printPoints() {var data = {a:1, b:2, c:3};
-var json = JSON.stringify(data);
-var blob = new Blob([json], {type: "application/json"});
-var url  = URL.createObjectURL(blob);
+function printPoints() {
+  var data = {
+    a: 1,
+    b: 2,
+    c: 3
+  };
+  var json = JSON.stringify(data);
+  var blob = new Blob([json], {
+    type: "application/json"
+  });
+  var url = URL.createObjectURL(blob);
 
-var a = document.createElement('a');
-  a.download    = "backup.json";
-  a.href        = url;
+  var a = document.createElement('a');
+  a.download = "backup.json";
+  a.href = url;
   a.textContent = "Download backup.json";
   var points = [];
 
@@ -146,18 +154,20 @@ var a = document.createElement('a');
 }
 
 var link;
+
 function saveDrawing() {
   var json = printPoints();
-  var blob = new Blob([json], {type: "application/json"});
-  var url  = URL.createObjectURL(blob);
+  var blob = new Blob([json], {
+    type: "application/json"
+  });
+  var url = URL.createObjectURL(blob);
   if (link) {
     link.parentNode.removeChild(link);
   }
   var a = document.createElement('a');
-  a.download    = "drawing.json";
-  a.href        = url;
+  a.download = "drawing.json";
+  a.href = url;
   a.textContent = "Download drawing.json";
   link = a;
   document.body.appendChild(a);
 }
-

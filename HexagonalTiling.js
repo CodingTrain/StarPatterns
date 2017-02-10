@@ -2,10 +2,9 @@ function HexagonalTiling(r) {
   this.polys = [];
 
   this.buildCell = function(x, y) {
-    var p = new Polygon();
-
-    // rotate 360 degrees around the clock in 60 degree increments
     var sides = 6;
+    var p = new Polygon(sides);
+    // rotate 360 degrees around the clock in 60 degree increments
     var inc = (2 * Math.PI) / sides;
     for (var index = 0; index < sides; index++){
       // angular to cartesian

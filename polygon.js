@@ -4,7 +4,8 @@
 // Video: https://youtu.be/sJ6pMLp_IaI
 // Based on: http://www.cgl.uwaterloo.ca/csk/projects/starpatterns/
 
-function Polygon() {
+function Polygon(sides) {
+  this.interiorAngle = ((sides - 2) * PI) / sides;
   this.vertices = [];
   this.edges = [];
 
@@ -29,15 +30,7 @@ function Polygon() {
 
   this.hankin = function() {
     for (var i = 0; i < this.edges.length; i++) {
-      this.edges[i].hankin();
-    }
-
-    for (var i = 0; i < this.edges.length; i++) {
-      for (var j = 0; j < this.edges.length; j++) {
-        if (i !== j) {
-          this.edges[i].findEnds(this.edges[j]);
-        }
-      }
+      this.edges[i].hankin(this.interiorAngle);
     }
   }
 

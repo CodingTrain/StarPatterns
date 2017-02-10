@@ -29,7 +29,7 @@ function DodecaHexaSquareTiling(r) {
     p = build_poly(x+d6,y,r6,6);
     this.polys.push(p);
     //lets find out which those are:
-    
+
     p = build_poly(x+D6.x,y+D6.y,r6,6,Math.PI/3);
     this.polys.push(p);
     p = build_poly(x+D4A.x,y+D4A.y,r4,4,Math.PI/6);
@@ -87,7 +87,7 @@ function DodecaHexaSquareTiling(r) {
     // Now I have to add two rotated polygons , another square
     // and another hexagon;
 function build_poly(x,y,r,sides,init_angle) {
-    p = new Polygon();
+    p = new Polygon(sides);
     if(!init_angle)init_angle = 0;
     // rotate 360 degrees around the clock in 60 degree increments
     var inc = 2 * Math.PI / sides;

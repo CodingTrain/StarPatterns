@@ -19,12 +19,15 @@ function Edge(a, b) {
     this.h2.show();
   }
 
-  this.hankin = function() {
+  this.hankin = function(alpha) {
     var mid = p5.Vector.add(this.a, this.b);
     mid.mult(0.5);
 
     var v1 = p5.Vector.sub(this.a, mid);
     var v2 = p5.Vector.sub(this.b, mid);
+
+    var half_len = v1.mag();
+
     var offset1 = mid;
     var offset2 = mid;
     if (delta > 0) {
@@ -38,6 +41,13 @@ function Edge(a, b) {
 
     v1.rotate(radians(-angle));
     v2.rotate(radians(angle));
+
+    var alpha = alpha / 2;
+    var beta = PI - alpha - radians(angle);
+    var len = sin(alpha) * ((half_len + delta) / sin(beta));
+
+    v1.setMag(len);
+    v2.setMag(len);
 
     this.h1 = new Hankin(offset1, v1);
     this.h2 = new Hankin(offset2, v2);
