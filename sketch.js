@@ -27,6 +27,7 @@ function setup() {
   background(51);
   deltaSlider = select('#delta');
   angleSlider = select('#angle');
+  levelSlider = select('#level');
   tilingTypeSelect = select('#tiling');
   tilingTypeSelect.changed(chooseTiling);
   gridCheck = select('#showGrid');
@@ -42,6 +43,7 @@ function draw() {
   background(50);
   angle = angleSlider.value();
   delta = deltaSlider.value();
+  level = levelSlider.value();
   var t = 0;
   var step = cycleSlider.value() / polys.length;
   for (var i = 0; i < polys.length; i++) {
