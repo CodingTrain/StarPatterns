@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
-    </style>
+    <title>Star Patterns</title>
     <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
     <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
     <script language="javascript" type="text/javascript" src="sketch.js"></script>
@@ -24,8 +25,8 @@
     <div id="interface">
         delta: <input id="delta" type="range" min="0" max="25">
         angle: <input id="angle" type="range" min="0" max="90" value="60">
-		level: <input id="level" type="range" min="0" max="5" value="1" step="1">
-        <br />
+        <br>
+		    level: <input id="level" type="range" min="0" max="5" value="1" step="1">
         tiling:
         <select id="tiling">
           <option value="square">square</option>
@@ -36,9 +37,9 @@
           <option value="hexagonal">hexagonal</option>
           <option value="square">square</option>
         </select>
-        <br />
+        <br>
         show grid: <input id="showGrid" type="checkbox" checked>
-        <br />
+        <br>
         angle increase: <input id="angleIncrease" type="range" min="0.0" max="2.0" step="0.01" value="0">
         delta increase: <input id="deltaIncrease" type="range" min="0.0" max="2.0" step="0.01" value="0">
         change cycle: <input id="cycleIncrease" type="range" min="0.0" max="6.28" step="0.01" value="0">
