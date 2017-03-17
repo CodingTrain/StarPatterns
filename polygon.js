@@ -31,7 +31,7 @@ function Polygon(sides) {
   this.hankin = function() {
     for (var i = 0; i < this.edges.length; i++) {
       this.edges[i].hankin(this.interiorAngle);
-	  this.edges[i].sidesOfParent=sides;
+        this.edges[i].sidesOfParent=sides;
     }
   }
 
