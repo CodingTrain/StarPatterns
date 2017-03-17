@@ -9,6 +9,7 @@ function Edge(a, b) {
   this.b = b;
   this.h1;
   this.h2;
+
   this.sidesOfParent;
   this.show = function() {
     if (gridCheck.checked()) {
@@ -45,15 +46,12 @@ function Edge(a, b) {
     var alpha = alpha / 2;
     var beta = PI - alpha - radians(angle);
     var len = sin(alpha) * ((half_len + delta) / sin(beta));
-	
-	//here we add something
-    //if LEVEL is Zero Returns to the usual
+
     var theta =(PI/this.sidesOfParent);
     var Re=half_len/sin(PI/this.sidesOfParent);
     var beta = PI - alpha - radians(angle);
     var len2 = sin(theta * level) * (Re - (len*sin(radians(angle))/sin(alpha)))/sin(beta+(theta * level));
     len = len + len2
-
     v1.setMag(len);
     v2.setMag(len);
 

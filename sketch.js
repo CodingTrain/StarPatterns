@@ -22,7 +22,6 @@ var gridCheck;
 function setup() {
   var canvas = createCanvas(400, 400);
   canvas.parent('canvasContainer');
-
   // angleMode(DEGREES);
   background(51);
   deltaSlider = select('#delta');
@@ -35,6 +34,10 @@ function setup() {
   deltaSliderIncrease = select('#deltaIncrease');
   cycleSlider = select('#cycleIncrease');
   downloadButton = createButton('save');
+  downloadButton.style("position", "abosolute");
+  downloadButton.style("bottom", "46%");
+  downloadButton.style("right", "1752px");
+  downloadButton.class("mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent button-1")
   downloadButton.mousePressed(saveDrawing);
   chooseTiling();
 }
@@ -135,6 +138,7 @@ function printPoints() {
 
   var a = document.createElement('a');
   a.download = "backup.json";
+  
   a.href = url;
   a.textContent = "Download backup.json";
   var points = [];
