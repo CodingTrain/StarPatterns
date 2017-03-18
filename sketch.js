@@ -15,7 +15,6 @@ var angleSlider;
 var angleSliderIncrease;
 var deltaSliderIncrease;
 var cycleSlider;
-var downloadButton;
 var tilingTypeSelect;
 var gridCheck;
 
@@ -34,8 +33,6 @@ function setup() {
   angleSliderIncrease = select('#angleIncrease');
   deltaSliderIncrease = select('#deltaIncrease');
   cycleSlider = select('#cycleIncrease');
-  downloadButton = createButton('save');
-  downloadButton.mousePressed(saveDrawing);
   chooseTiling();
 }
 
@@ -171,5 +168,6 @@ function saveDrawing() {
   a.href = url;
   a.textContent = "Download drawing.json";
   link = a;
-  document.body.appendChild(a);
+  var bp = document.getElementById('yellowDiv')
+  bp.appendChild(a);
 }

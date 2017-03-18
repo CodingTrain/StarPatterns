@@ -14,35 +14,70 @@
     <script language="javascript" type="text/javascript" src="SquareOctagonTiling.js"></script>
     <script language="javascript" type="text/javascript" src="DodecaHexaSquareTiling.js"></script>
     <script language="javascript" type="text/javascript" src="HexaTriangleSquareTiling.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- load MUI (some material desing thing) -->
+    <link href="https://cdn.muicss.com/mui-0.9.11/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.muicss.com/mui-0.9.11/js/mui.min.js"></script>
+    <!-- load Material Desing Lite -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 
 <body>
 
-    <div id="canvasContainer">
+  <div class="mui-container">
 
-    </div>
+    <div class="mui-panel mui--z2 bg">
+      <div>
+        <div class="mui-panel mui--z3 blue">
+        <div style="margin-left:auto;margin-right:auto;width:400px;height:400px;">
+            <div id="canvasContainer"></div>
+        </div>
+        </div>
+      </div>
+
+
 
     <div id="interface">
-        delta: <input id="delta" type="range" min="0" max="25">
-        angle: <input id="angle" type="range" min="0" max="90" value="60">
-        <br>
-		    level: <input id="level" type="range" min="0" max="5" value="1" step="1">
-        tiling:
+
+        <div class="mui-panel mui--z2 green">
+        Delta <input class="mdl-slider mdl-js-slider" id="delta" type="range" min="0" max="25">
+        Angle: <input class="mdl-slider mdl-js-slider" id="angle" type="range" min="0" max="90" value="60">
+		    Level: <input class="mdl-slider mdl-js-slider" id="level" type="range" min="0" max="5" value="1" step="1">
+        </div>
+        <div class="mui-panel mui--z2 yellow" id="yellowDiv">
+        Tiling:
         <select id="tiling">
-          <option value="square">square</option>
-          <option value="hexagonal">hexagonal</option>
+          <option value="square">Square</option>
+          <option value="hexagonal">Hexagonal</option>
           <option value="4.8.8">4.8.8</option>
-          <option value="hexa_triangle_square">hexa_triangle_square</option>
-          <option value="dodeca_hex_square">dodeca_hex_square</option>
-          <option value="hexagonal">hexagonal</option>
-          <option value="square">square</option>
+          <option value="hexa_triangle_square">Hexa triangle square</option>
+          <option value="dodeca_hex_square">Dodeca hex square</option>
+          <option value="hexagonal">Hexagonal</option>
+          <option value="square">Square</option>
         </select>
-        <br>
-        show grid: <input id="showGrid" type="checkbox" checked>
-        <br>
-        angle increase: <input id="angleIncrease" type="range" min="0.0" max="2.0" step="0.01" value="0">
-        delta increase: <input id="deltaIncrease" type="range" min="0.0" max="2.0" step="0.01" value="0">
-        change cycle: <input id="cycleIncrease" type="range" min="0.0" max="6.28" step="0.01" value="0">
-    </div>
+
+        <!-- Grid -->
+        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="showGrid">
+          <input type="checkbox" id="showGrid" class="mdl-checkbox__input" checked>
+          <span class="mdl-checkbox__label">Show grid</span>
+        </label>
+        <input type="button" class="mui-btn mui-btn--primary" onclick="saveDrawing();" value="Save"/>
+
+      </div>
+
+        <div class="mui-panel mui--z2 red">
+        Angle increase: <input class="mdl-slider mdl-js-slider" id="angleIncrease" type="range" min="0.0" max="2.0" step="0.01" value="0">
+        Delta increase: <input class="mdl-slider mdl-js-slider" id="deltaIncrease" type="range" min="0.0" max="2.0" step="0.01" value="0">
+        Change cycle: <input class="mdl-slider mdl-js-slider" id="cycleIncrease" type="range" min="0.0" max="6.28" step="0.01" value="0">
+      </div>
+
+  </div>
+  </div>
+</div>
+
 </body>
 </html>
