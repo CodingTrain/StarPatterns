@@ -17,6 +17,7 @@ var deltaSliderIncrease;
 var cycleSlider;
 var tilingTypeSelect;
 var gridCheck;
+let zoom=100;
 
 function setup() {
   var canvas = createCanvas(400, 400);
@@ -24,6 +25,7 @@ function setup() {
 
   // angleMode(DEGREES);
   background(51);
+  zoomSlider = select('#zoom');
   deltaSlider = select('#delta');
   angleSlider = select('#angle');
   levelSlider = select('#level');
@@ -38,6 +40,11 @@ function setup() {
 
 function draw() {
   background(50);
+  update_z = zoomSlider.value();
+  if (zoom != update_z) {
+    zoom = update_z
+    chooseTiling();
+  }
   angle = angleSlider.value();
   delta = deltaSlider.value();
   level = levelSlider.value();
@@ -52,26 +59,26 @@ function draw() {
 }
 
 function octSquareTiling() {
-  var octSqTiles = new SquareOctagonTiling(50);
+  var octSqTiles = new SquareOctagonTiling(zoom);
   octSqTiles.buildGrid();
   polys = octSqTiles.polys;
 }
 
 function hexTiling() {
-  var hexTiles = new HexagonalTiling(50);
+  var hexTiles = new HexagonalTiling(zoom);
   hexTiles.buildGrid();
   polys = hexTiles.polys;
 }
 
 function hexTriangleSquareTiling() {
-  var tiles = new HexaTriangleSquareTiling(50);
+  var tiles = new HexaTriangleSquareTiling(zoom);
   tiles.buildGrid();
   polys = tiles.polys;
 }
 
 function squareTiling() {
   polys = [];
-  var inc = 100;
+  var inc = zoom;
   for (var x = 0; x < width; x += inc) {
     for (var y = 0; y < height; y += inc) {
       var poly = new Polygon(4);
@@ -86,7 +93,7 @@ function squareTiling() {
 }
 
 function dodecaHexSquareTiling() {
-  var tiles = new DodecaHexaSquareTiling(50);
+  var tiles = new DodecaHexaSquareTiling(zoom);
   tiles.buildGrid();
   polys = tiles.polys;
 
