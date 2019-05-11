@@ -69,11 +69,10 @@ function DodecaHexaSquareTiling(r) {
     var w = 2*h12+4*h6+2*h4;
     var inc = h
     // TODO: get dimensions from somewhere
-    var dim =400;
     var row = 0;
-    for (var y = -h / 2; y < dim + h/2; y += inc) {
+    for (var y = -h / 2; y < height + h/2; y += inc) {
       var startX = ((row % 2) == 0) ? -w : -w / 2;
-      for (var x = startX; x < dim; x += w) {
+      for (var x = startX; x < width; x += w) {
         this.buildCell(x, y);
       }
       row++;

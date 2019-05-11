@@ -20,7 +20,7 @@ var gridCheck;
 let zoom=100;
 
 function setup() {
-  var canvas = createCanvas(400, 400);
+  var canvas = createCanvas(1000, 600);
   canvas.parent('canvasContainer');
 
   // angleMode(DEGREES);
@@ -46,7 +46,7 @@ function draw() {
     chooseTiling();
   }
   angle = angleSlider.value();
-  delta = deltaSlider.value();
+  delta = deltaSlider.value()*(zoom/200);
   level = levelSlider.value();
   var t = 0;
   var step = cycleSlider.value() / polys.length;
